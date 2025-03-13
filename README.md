@@ -29,7 +29,7 @@ A simple blog application built with Next.js 13+ using the App Router, demonstra
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Open [http://localhost:3000](https://label-lift-assignment-j66g.vercel.app/) in your browser
 
 ## Project Structure
 
