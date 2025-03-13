@@ -14,7 +14,7 @@ export default async function Home() {
             className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <Link href={`/posts/${post.id}`}>
-              <h2 className="text-2xl font-semibold mb-2 hover:text-blue-600 transition-colors">
+              <h2 className="text-2xl font-semibold mb-2 text-slate-300 hover:text-blue-600 transition-colors">
                 {post.title}
               </h2>
             </Link>
