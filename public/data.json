@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction to Next.js",
+    "author": "John Doe",
+    "content": "Next.js is a popular React framework that enables server-side rendering and generating static websites. It provides an excellent developer experience with features like automatic routing, built-in CSS support, and API routes. The framework is designed to help developers build production-ready React applications with ease."
+  },
+  {
+    "id": 2,
+    "title": "Why Use React?",
+    "author": "Jane Smith",
+    "content": "React is a JavaScript library for building user interfaces. It allows developers to create reusable components that manage their own state. React's virtual DOM and efficient rendering system make it perfect for building fast, scalable web applications. Its component-based architecture promotes code reusability and maintainability."
+  },
+  {
+    "id": 3,
+    "title": "The Power of TypeScript",
+    "author": "Alex Johnson",
+    "content": "TypeScript adds static typing to JavaScript, making it easier to catch errors early in development. It provides excellent tooling support, better code organization, and enhanced maintainability for large-scale applications. Learn how TypeScript can improve your development workflow."
+  }
+] 
