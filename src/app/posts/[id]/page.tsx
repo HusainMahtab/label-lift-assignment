@@ -2,10 +2,11 @@ import { getAllPosts, getPostById } from '@/lib/blog';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-interface Props {
+interface PageProps {
   params: {
     id: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
 export async function generateStaticParams() {
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({ params, searchParams }: PageProps) {
   const id = parseInt(params.id);
   
   if (isNaN(id)) {
