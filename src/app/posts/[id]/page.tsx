@@ -3,7 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+type PageParams = {
+  id: string;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
   const id = parseInt(params.id);
   if (isNaN(id)) {
     return {
@@ -17,18 +25,19 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<PageParams[]> {
   const posts = await getAllPosts();
   return posts.map((post) => ({
     id: post.id.toString(),
   }));
 }
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { id: string };
-}) {
+type PageProps = {
+  params: PageParams;
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+const BlogPost = async ({ params }: PageProps) => {
   const id = parseInt(params.id);
   
   if (isNaN(id)) {
@@ -52,4 +61,6 @@ export default async function BlogPost({
       </article>
     </main>
   );
-} 
+}
+
+export default BlogPost; 
