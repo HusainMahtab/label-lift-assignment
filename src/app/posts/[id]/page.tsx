@@ -1,9 +1,20 @@
 import { getAllPosts, getPostById } from '@/lib/blog';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
-type Props = {
-  params: { id: string }
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const id = parseInt(params.id);
+  if (isNaN(id)) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+  const post = await getPostById(id);
+  return {
+    title: post.title,
+    description: post.content.substring(0, 160),
+  };
 }
 
 export async function generateStaticParams() {
@@ -13,7 +24,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({
+  params,
+}: {
+  params: { id: string };
+}) {
   const id = parseInt(params.id);
   
   if (isNaN(id)) {
